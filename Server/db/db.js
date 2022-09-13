@@ -14,15 +14,10 @@
 // };
 
 
-const sql = require('mysql')
+const sql = require('mysql2')
 const config = require('./conConfig');
 
-const poolPromise = new sql.createConnection(config)
-    .connect((err) => {
-        if(err) throw err;
-        console.log('Connected to MySQL Server!'); 
-    });
-
+const poolPromise = new sql.createPool(config)
 module.exports = {
     sql, poolPromise
 };

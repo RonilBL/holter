@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiCallService } from 'src/app/services/apiCall.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private apicallService:ApiCallService,
+    private router: Router
     ) { }
 
 
@@ -37,6 +39,8 @@ export class LoginComponent implements OnInit {
     .subscribe((data: any) => {
 
       console.log(data);
+      localStorage.setItem("isLogin", "1");
+      this.router.navigate(['home']);
 
     });
 

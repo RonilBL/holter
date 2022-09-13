@@ -15,6 +15,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu'; 
 import { LoginComponent } from './component/login/login.component';
 import { NgZorroAntdModule } from './ng-zooro/ng-zorro-antd.module';
+import { AuthGuard } from './guard/guard';
 
 registerLocaleData(en);
 
@@ -33,7 +34,8 @@ registerLocaleData(en);
     NgZorroAntdModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US }
+    { provide: NZ_I18N, useValue: en_US },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
